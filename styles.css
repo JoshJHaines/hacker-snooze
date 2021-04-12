@@ -3,12 +3,50 @@
     padding: 0;
 }
 
-.header {
+#header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100vw;
+    background-color: aqua;
+}
+#header-left {
+    width: auto;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    background-color: chocolate;
+}
+#header-center {
+    flex-grow: 1;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: coral;
+}
+#header-right {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;   
+    align-items: center;
+    background-color: chartreuse;
 }
 
-img {
+#header-left > img {
     height: 50px;
+    margin-left: 10px;
+    background-color: chartreuse;
+}
+
+#body {
+    background-color: blueviolet;
+    height: 85vh;
+}
+
+#footer {
+    background-color: cadetblue;
+    height: 8vh;
 }
