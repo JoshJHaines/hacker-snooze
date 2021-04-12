@@ -50,3 +50,22 @@
     background-color: cadetblue;
     height: 8vh;
 }
+
+
+/* ************PHONE************ */
+@media screen and (max-width: 700px) {
+	#header {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    #header-left {
+		width: 100%;
+	}
+	#header-center {
+		width: 100%;
+	}
+    #header-right {
+		width: 100%;
+        visibility:collapse;
+	}
+}
