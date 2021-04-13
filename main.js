@@ -22,9 +22,20 @@ body.appendChild(parent);
  * MAIN FUNCTIONS *
  ******************/
 functionBreak();
-hitAPI();
-parent.innerText = hitAPI();
-
+// hitAPI();
+getStories();
+function getStories() {
+	fetch(hackerNewsNewStoriesAPI)
+		.then((res) => res.json())
+		.then((data) => {
+			let storyID = data[0];
+			console.log(storyID);
+			let storyAPI = `https://hacker-news.firebaseio.com/v0/item/${storyID}.json?print=pretty`;
+			console.log(storyAPI);
+			hitAPI2(storyAPI);
+		});
+}
+functionBreak();
 /********************
  * HELPER FUNCTIONS *
  ********************/
@@ -39,5 +50,18 @@ function hitAPI() {
 			console.log(data[0]);
 			parent.innerText = `Attempting to place id:${data[0]} into an Element`;
 			return data[0];
+		});
+}
+
+function hitAPI2(API) {
+	fetch(API)
+		.then((res) => res.json())
+		.then((data) => {
+			console.log("Story Title:", data.title);
+			console.log("Story URL:", data.url);
+			console.log("Story Score:", data.score);
+			console.log("Story Author:", data.by);
+			console.log("Story Comments:", data.descendants);
+            parent.innerText = `${data.title}`;
 		});
 }
