@@ -66,10 +66,30 @@
 
 #footer {
     background-color: #323031;
-    color: #db3a34;
-    height: 8vh;
+    color: #ffc857;
+    height: auto;
     align-items: center;
     justify-content: center;
+}
+
+#footer-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-links > a {
+    text-decoration: none;
+    color: #db3a34;
+    font-size: small;
+    margin: 3px;
+}
+
+#footer-search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
 }
 
 
