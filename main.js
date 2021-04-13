@@ -1,7 +1,7 @@
 /********
  * APIS *
  ********/
-const hackerNewsNewStoriesAPI =
+const hackerNewsTopStoriesAPI =
 	"https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty";
 
 /********************
@@ -25,7 +25,7 @@ functionBreak();
 // hitAPI();
 getStories();
 function getStories() {
-	fetch(hackerNewsNewStoriesAPI)
+	fetch(hackerNewsTopStoriesAPI)
 		.then((res) => res.json())
 		.then((data) => {
 			let storyID = data[0];
