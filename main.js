@@ -63,5 +63,6 @@ function hitAPI2(API) {
 			console.log("Story Author:", data.by);
 			console.log("Story Comments:", data.descendants);
             parent.innerText = `${data.title}`;
+            // parent.innerText = `<a href=\"${data.url}\">${data.title}</a>`
 		});
 }
