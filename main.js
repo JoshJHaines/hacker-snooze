@@ -1,12 +1,13 @@
 /********
  * APIS *
  ********/
-const hackerNewsAPI = "https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty";
+const hackerNewsNewStoriesAPI =
+	"https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty";
 
 /********************
  * SELECTOR QUERIES *
  ********************/
-const body = document.querySelector("body");
+const body = document.querySelector("#body");
 
 const parent = document.createElement("div");
 parent.className = "parent";
@@ -20,21 +21,23 @@ body.appendChild(parent);
 /******************
  * MAIN FUNCTIONS *
  ******************/
-functionBreak()
-hitAPI()
-
+functionBreak();
+hitAPI();
+parent.innerText = hitAPI();
 
 /********************
  * HELPER FUNCTIONS *
  ********************/
-function functionBreak(){
-    console.log ("******* Break *******")
+function functionBreak() {
+	console.log("******* Break *******");
 }
-function hitAPI(){
-    fetch(hackerNewsAPI)
+function hitAPI() {
+	fetch(hackerNewsNewStoriesAPI)
 		.then((res) => res.json())
 		.then((data) => {
 			console.log("success!");
-            console.log(data)
+			console.log(data[0]);
+			parent.innerText = `Attempting to place id:${data[0]} into an Element`;
+			return data[0];
 		});
 }
