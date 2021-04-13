@@ -1,7 +1,7 @@
 /********
  * APIS *
  ********/
-const hackerNewsTopStoriesAPI =
+const topStoriesAPI =
 	"https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty";
 
 /********************
@@ -21,39 +21,17 @@ body.appendChild(parent);
 /******************
  * MAIN FUNCTIONS *
  ******************/
-functionBreak();
-// hitAPI();
-getStories();
-function getStories() {
-	fetch(hackerNewsTopStoriesAPI)
+function getListStories() {
+	fetch(topStoriesAPI)
 		.then((res) => res.json())
 		.then((data) => {
 			let storyID = data[0];
-			console.log(storyID);
-			let storyAPI = `https://hacker-news.firebaseio.com/v0/item/${storyID}.json?print=pretty`;
-			console.log(storyAPI);
-			hitAPI2(storyAPI);
-		});
-}
-functionBreak();
-/********************
- * HELPER FUNCTIONS *
- ********************/
-function functionBreak() {
-	console.log("******* Break *******");
-}
-function hitAPI() {
-	fetch(hackerNewsNewStoriesAPI)
-		.then((res) => res.json())
-		.then((data) => {
-			console.log("success!");
-			console.log(data[0]);
-			parent.innerText = `Attempting to place id:${data[0]} into an Element`;
-			return data[0];
+			let singleStoryAPI = `https://hacker-news.firebaseio.com/v0/item/${storyID}.json?print=pretty`;
+			hitAPI(singleStoryAPI);
 		});
 }
 
-function hitAPI2(API) {
+function hitAPI(API) {
 	fetch(API)
 		.then((res) => res.json())
 		.then((data) => {
@@ -62,9 +40,13 @@ function hitAPI2(API) {
 			const storyScore = data.score;
 			const storyAuthor = data.by;
 			const storyComments = data.descendants;
-
 			const displayInfo = `Story by: ${storyAuthor}  |  Score: ${storyScore}  |  Comments: ${storyComments}`;
 			parent.innerHTML = `<a href=\"${storyURL}\">${storyTitle}</a>`;
 			parent.innerHTML += `<p> ${displayInfo} </p>`;
 		});
 }
+
+/****************
+ * ON PAGE LOAD *
+ ****************/
+getListStories();
