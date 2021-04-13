@@ -63,9 +63,8 @@ function hitAPI2(API) {
             const storyAuthor = data.by
             const storyComments = data.descendants
 
-            const displayTitle = `${storyTitle}`
             const displayInfo = `Story by: ${storyAuthor}  |  Score: ${storyScore}  |  Comments: ${storyComments}`
-
-            parent.innerHTML = ``
+            parent.innerHTML = `<a href=\"${storyURL}\">${storyTitle}</a>`;
+            //child.innerText = displayInfo
 		});
 }
