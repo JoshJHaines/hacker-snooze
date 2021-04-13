@@ -47,6 +47,22 @@
     height: 85vh;
 }
 
+.parent {
+    border: 5px solid red;
+    padding: 5px;
+}
+
+#body > .parent > a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#body > .parent > p {
+    color: grey;
+    font-size: 15px;
+}
+
 #footer {
     background-color: cadetblue;
     height: 8vh;
