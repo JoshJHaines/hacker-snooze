@@ -25,9 +25,15 @@ function getListStories() {
 	fetch(topStoriesAPI)
 		.then((res) => res.json())
 		.then((data) => {
-			let storyID = data[0];
-			let singleStoryAPI = `https://hacker-news.firebaseio.com/v0/item/${storyID}.json?print=pretty`;
-			hitAPI(singleStoryAPI);
+            //let i = 0
+            for (i = 0; i < 100; i++){
+                let storyID = data[i];
+                let singleStoryAPI = `https://hacker-news.firebaseio.com/v0/item/${storyID}.json?print=pretty`;
+                console.log("Index", i)
+                console.log("StoryID", data[i])
+                console.log("Story API:", singleStoryAPI)
+                //hitSingleStoryAPI(singleStoryAPI);
+            }
 		});
         //want to loop through the first 100 items in 'data' arr.
         //for each loop, I want to hit the single story API for that index
@@ -35,7 +41,7 @@ function getListStories() {
         //edit the Element with the items 
 }
 
-function hitAPI(API) {
+function hitSingleStoryAPI(API) {
 	fetch(API)
 		.then((res) => res.json())
 		.then((data) => {
