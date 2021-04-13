@@ -15,14 +15,9 @@ function getListStories() {
             for (i = 0; i < 100; i++){
                 let storyID = data[i];
                 let singleStoryAPI = `https://hacker-news.firebaseio.com/v0/item/${storyID}.json?print=pretty`;
-                console.log("Index", i)
-                console.log("StoryID", data[i])
-                console.log("Story API:", singleStoryAPI)
                 hitSingleStoryAPI(singleStoryAPI);
             }
 		});
-        //create an Element 
-        //edit the Element with the items 
 }
 
 function hitSingleStoryAPI(API) {
