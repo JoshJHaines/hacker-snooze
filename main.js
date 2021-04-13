@@ -2,7 +2,7 @@
  * APIS *
  ********/
 const hackerNewsNewStoriesAPI =
-	"https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty";
+	"https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty";
 
 /********************
  * SELECTOR QUERIES *
@@ -57,14 +57,14 @@ function hitAPI2(API) {
 	fetch(API)
 		.then((res) => res.json())
 		.then((data) => {
-            const storyTitle = data.title
-            const storyURL = data.url
-            const storyScore = data.score
-            const storyAuthor = data.by
-            const storyComments = data.descendants
+			const storyTitle = data.title;
+			const storyURL = data.url;
+			const storyScore = data.score;
+			const storyAuthor = data.by;
+			const storyComments = data.descendants;
 
-            const displayInfo = `Story by: ${storyAuthor}  |  Score: ${storyScore}  |  Comments: ${storyComments}`
-            parent.innerHTML = `<a href=\"${storyURL}\">${storyTitle}</a>`;
-            //child.innerText = displayInfo
+			const displayInfo = `Story by: ${storyAuthor}  |  Score: ${storyScore}  |  Comments: ${storyComments}`;
+			parent.innerHTML = `<a href=\"${storyURL}\">${storyTitle}</a>`;
+			parent.innerHTML += `<p> ${displayInfo} </p>`;
 		});
 }
