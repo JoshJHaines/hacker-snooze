@@ -57,12 +57,15 @@ function hitAPI2(API) {
 	fetch(API)
 		.then((res) => res.json())
 		.then((data) => {
-			console.log("Story Title:", data.title);
-			console.log("Story URL:", data.url);
-			console.log("Story Score:", data.score);
-			console.log("Story Author:", data.by);
-			console.log("Story Comments:", data.descendants);
-            parent.innerText = `${data.title}`;
-            // parent.innerText = `<a href=\"${data.url}\">${data.title}</a>`
+            const storyTitle = data.title
+            const storyURL = data.url
+            const storyScore = data.score
+            const storyAuthor = data.by
+            const storyComments = data.descendants
+
+            const displayTitle = `${storyTitle}`
+            const displayInfo = `Story by: ${storyAuthor}  |  Score: ${storyScore}  |  Comments: ${storyComments}`
+
+            parent.innerHTML = ``
 		});
 }
